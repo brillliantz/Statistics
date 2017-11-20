@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>EDA_and_Regression_on_Height</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>EDA_and_Regression_on_Height</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -13,8 +11,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1109,7 +1107,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2538,7 +2535,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3029,7 +3025,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8760,6 +8755,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8962,8 +8960,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8986,6 +8990,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9122,6 +9136,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9211,6 +9228,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9255,6 +9275,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9551,6 +9574,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9571,11 +9595,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11246,7 +11265,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11558,6 +11577,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11571,6 +11591,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11631,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11643,9 +11668,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11751,8 +11778,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">&#182;</a></h1><p><p><div class="lev2 toc-item"><a href="#PART-1:-Descriptive-Statistics-and-Exploratory-Data-Analysis" data-toc-modified-id="PART-1:-Descriptive-Statistics-and-Exploratory-Data-Analysis-01"><span class="toc-item-num">0.1&nbsp;&nbsp;</span>PART 1: Descriptive Statistics and Exploratory Data Analysis</a></div><div class="lev3 toc-item"><a href="#Initializations" data-toc-modified-id="Initializations-011"><span class="toc-item-num">0.1.1&nbsp;&nbsp;</span>Initializations</a></div><div class="lev3 toc-item"><a href="#Import-Data" data-toc-modified-id="Import-Data-012"><span class="toc-item-num">0.1.2&nbsp;&nbsp;</span>Import Data</a></div><div class="lev3 toc-item"><a href="#Basic-Descriptive-Statistics" data-toc-modified-id="Basic-Descriptive-Statistics-013"><span class="toc-item-num">0.1.3&nbsp;&nbsp;</span>Basic Descriptive Statistics</a></div><div class="lev3 toc-item"><a href="#Distributions-of-Variables" data-toc-modified-id="Distributions-of-Variables-014"><span class="toc-item-num">0.1.4&nbsp;&nbsp;</span>Distributions of Variables</a></div><div class="lev3 toc-item"><a href="#Correlations-Between-Variables" data-toc-modified-id="Correlations-Between-Variables-015"><span class="toc-item-num">0.1.5&nbsp;&nbsp;</span>Correlations Between Variables</a></div><div class="lev2 toc-item"><a href="#PART-2:-Statistical-Inference" data-toc-modified-id="PART-2:-Statistical-Inference-02"><span class="toc-item-num">0.2&nbsp;&nbsp;</span>PART 2: Statistical Inference</a></div><div class="lev3 toc-item"><a href="#Nonparametric-Test:-Normality" data-toc-modified-id="Nonparametric-Test:-Normality-021"><span class="toc-item-num">0.2.1&nbsp;&nbsp;</span>Nonparametric Test: Normality</a></div><div class="lev4 toc-item"><a href="#Graphical-Method" data-toc-modified-id="Graphical-Method-0211"><span class="toc-item-num">0.2.1.1&nbsp;&nbsp;</span>Graphical Method</a></div><div class="lev4 toc-item"><a href="#Skewness-&amp;-Kurtosis-Test" data-toc-modified-id="Skewness-&amp;-Kurtosis-Test-0212"><span class="toc-item-num">0.2.1.2&nbsp;&nbsp;</span>Skewness &amp; Kurtosis Test</a></div><div class="lev4 toc-item"><a href="#Pearson-Chi-Squared-Goodness-of-Fit-Test" data-toc-modified-id="Pearson-Chi-Squared-Goodness-of-Fit-Test-0213"><span class="toc-item-num">0.2.1.3&nbsp;&nbsp;</span>Pearson Chi-Squared Goodness of Fit Test</a></div><div class="lev4 toc-item"><a href="#Shapiro-Test" data-toc-modified-id="Shapiro-Test-0214"><span class="toc-item-num">0.2.1.4&nbsp;&nbsp;</span>Shapiro Test</a></div><div class="lev4 toc-item"><a href="#Normality-test-for-other-variables" data-toc-modified-id="Normality-test-for-other-variables-0215"><span class="toc-item-num">0.2.1.5&nbsp;&nbsp;</span>Normality test for other variables</a></div><div class="lev3 toc-item"><a href="#Analysis-of-The-Divergence-From-Normality" data-toc-modified-id="Analysis-of-The-Divergence-From-Normality-022"><span class="toc-item-num">0.2.2&nbsp;&nbsp;</span>Analysis of The Divergence From Normality</a></div><div class="lev3 toc-item"><a href="#Test-whether-the-distributions-of-different-genders-are-different" data-toc-modified-id="Test-whether-the-distributions-of-different-genders-are-different-023"><span class="toc-item-num">0.2.3&nbsp;&nbsp;</span>Test whether the distributions of different genders are different</a></div><div class="lev4 toc-item"><a href="#Visualization-of-different-genders" data-toc-modified-id="Visualization-of-different-genders-0231"><span class="toc-item-num">0.2.3.1&nbsp;&nbsp;</span>Visualization of different genders</a></div><div class="lev4 toc-item"><a href="#Hypothesis-tests" data-toc-modified-id="Hypothesis-tests-0232"><span class="toc-item-num">0.2.3.2&nbsp;&nbsp;</span>Hypothesis tests</a></div><div class="lev4 toc-item"><a href="#Test-whether-the-means-of-two-normal-distribution-are-the-same" data-toc-modified-id="Test-whether-the-means-of-two-normal-distribution-are-the-same-0233"><span class="toc-item-num">0.2.3.3&nbsp;&nbsp;</span>Test whether the means of two normal distribution are the same</a></div><div class="lev2 toc-item"><a href="#PART-3:-Linear-Regression-Analysis" data-toc-modified-id="PART-3:-Linear-Regression-Analysis-03"><span class="toc-item-num">0.3&nbsp;&nbsp;</span>PART 3: Linear Regression Analysis</a></div><div class="lev3 toc-item"><a href="#Regression-Without-Partitioning-Sample-is-NOT-SERIOUS" data-toc-modified-id="Regression-Without-Partitioning-Sample-is-NOT-SERIOUS-031"><span class="toc-item-num">0.3.1&nbsp;&nbsp;</span>Regression Without Partitioning Sample is NOT SERIOUS</a></div><div class="lev3 toc-item"><a href="#Benchmark:-A-Horizonal-Regression-Line" data-toc-modified-id="Benchmark:-A-Horizonal-Regression-Line-032"><span class="toc-item-num">0.3.2&nbsp;&nbsp;</span>Benchmark: A Horizonal Regression Line</a></div><div class="lev3 toc-item"><a href="#Simple-Regression-Model" data-toc-modified-id="Simple-Regression-Model-033"><span class="toc-item-num">0.3.3&nbsp;&nbsp;</span>Simple Regression Model</a></div><div class="lev3 toc-item"><a href="#Multiple-Regression-Model" data-toc-modified-id="Multiple-Regression-Model-034"><span class="toc-item-num">0.3.4&nbsp;&nbsp;</span>Multiple Regression Model</a></div><div class="lev3 toc-item"><a href="#Dealing-With-Multicollinearity" data-toc-modified-id="Dealing-With-Multicollinearity-035"><span class="toc-item-num">0.3.5&nbsp;&nbsp;</span>Dealing With Multicollinearity</a></div><div class="lev3 toc-item"><a href="#Backward-Feature-Selection" data-toc-modified-id="Backward-Feature-Selection-036"><span class="toc-item-num">0.3.6&nbsp;&nbsp;</span>Backward Feature Selection</a></div><div class="lev3 toc-item"><a href="#Test-on-the-Normality-of-residuals" data-toc-modified-id="Test-on-the-Normality-of-residuals-037"><span class="toc-item-num">0.3.7&nbsp;&nbsp;</span>Test on the Normality of residuals</a></div><div class="lev3 toc-item"><a href="#Confidence-Interval-of-Prediction" data-toc-modified-id="Confidence-Interval-of-Prediction-038"><span class="toc-item-num">0.3.8&nbsp;&nbsp;</span>Confidence Interval of Prediction</a></div><div class="lev3 toc-item"><a href="#Partial-Regression:-To-see-the-true-bivariate-relationship" data-toc-modified-id="Partial-Regression:-To-see-the-true-bivariate-relationship-039"><span class="toc-item-num">0.3.9&nbsp;&nbsp;</span>Partial Regression: To see the true bivariate relationship</a></div><div class="lev4 toc-item"><a href="#Partial-Regression-Plots" data-toc-modified-id="Partial-Regression-Plots-0391"><span class="toc-item-num">0.3.9.1&nbsp;&nbsp;</span>Partial Regression Plots</a></div><div class="lev4 toc-item"><a href="#CCPR-plots" data-toc-modified-id="CCPR-plots-0392"><span class="toc-item-num">0.3.9.2&nbsp;&nbsp;</span>CCPR plots</a></div><div class="lev3 toc-item"><a href="#Outliers-Detecting:-Influence-Plots" data-toc-modified-id="Outliers-Detecting:-Influence-Plots-0310"><span class="toc-item-num">0.3.10&nbsp;&nbsp;</span>Outliers Detecting: Influence Plots</a></div><div class="lev2 toc-item"><a href="#PART-4:-Advanced-Models:-Ridge,-Lasso-and-Support-Vector-Regression" data-toc-modified-id="PART-4:-Advanced-Models:-Ridge,-Lasso-and-Support-Vector-Regression-04"><span class="toc-item-num">0.4&nbsp;&nbsp;</span>PART 4: Advanced Models: Ridge, Lasso and Support Vector Regression</a></div><div class="lev3 toc-item"><a href="#Shrinkage-Methods:-Ridge-and-Lasso" data-toc-modified-id="Shrinkage-Methods:-Ridge-and-Lasso-041"><span class="toc-item-num">0.4.1&nbsp;&nbsp;</span>Shrinkage Methods: Ridge and Lasso</a></div><div class="lev3 toc-item"><a href="#SVR" data-toc-modified-id="SVR-042"><span class="toc-item-num">0.4.2&nbsp;&nbsp;</span>SVR</a></div><div class="lev2 toc-item"><a href="#Reference" data-toc-modified-id="Reference-05"><span class="toc-item-num">0.5&nbsp;&nbsp;</span>Reference</a></div><div class="lev2 toc-item"><a href="#Appendix" data-toc-modified-id="Appendix-06"><span class="toc-item-num">0.6&nbsp;&nbsp;</span>Appendix</a></div><div class="lev3 toc-item"><a href="#Regression-results-for-male-and-female-respectively" data-toc-modified-id="Regression-results-for-male-and-female-respectively-061"><span class="toc-item-num">0.6.1&nbsp;&nbsp;</span>Regression results for male and female respectively</a></div><div class="lev3 toc-item"><a href="#Util-Functions" data-toc-modified-id="Util-Functions-062"><span class="toc-item-num">0.6.2&nbsp;&nbsp;</span>Util Functions</a></div></p>
-
+<p><h1>Table of Contents<span class="tocSkip"></span></h1></p>
+<div class="toc" style="margin-top: 1em;"><ul class="toc-item"><li><span><a href="#PART-1:-Descriptive-Statistics-and-Exploratory-Data-Analysis" data-toc-modified-id="PART-1:-Descriptive-Statistics-and-Exploratory-Data-Analysis-1"><span class="toc-item-num">1&nbsp;&nbsp;</span>PART 1: Descriptive Statistics and Exploratory Data Analysis</a></span><ul class="toc-item"><li><span><a href="#Initializations" data-toc-modified-id="Initializations-1.1"><span class="toc-item-num">1.1&nbsp;&nbsp;</span>Initializations</a></span></li><li><span><a href="#Import-Data" data-toc-modified-id="Import-Data-1.2"><span class="toc-item-num">1.2&nbsp;&nbsp;</span>Import Data</a></span></li><li><span><a href="#Basic-Descriptive-Statistics" data-toc-modified-id="Basic-Descriptive-Statistics-1.3"><span class="toc-item-num">1.3&nbsp;&nbsp;</span>Basic Descriptive Statistics</a></span></li><li><span><a href="#Distributions-of-Variables" data-toc-modified-id="Distributions-of-Variables-1.4"><span class="toc-item-num">1.4&nbsp;&nbsp;</span>Distributions of Variables</a></span></li><li><span><a href="#Correlations-Between-Variables" data-toc-modified-id="Correlations-Between-Variables-1.5"><span class="toc-item-num">1.5&nbsp;&nbsp;</span>Correlations Between Variables</a></span></li></ul></li><li><span><a href="#PART-2:-Statistical-Inference" data-toc-modified-id="PART-2:-Statistical-Inference-2"><span class="toc-item-num">2&nbsp;&nbsp;</span>PART 2: Statistical Inference</a></span><ul class="toc-item"><li><span><a href="#Nonparametric-Test:-Normality" data-toc-modified-id="Nonparametric-Test:-Normality-2.1"><span class="toc-item-num">2.1&nbsp;&nbsp;</span>Nonparametric Test: Normality</a></span><ul class="toc-item"><li><span><a href="#Graphical-Method" data-toc-modified-id="Graphical-Method-2.1.1"><span class="toc-item-num">2.1.1&nbsp;&nbsp;</span>Graphical Method</a></span></li><li><span><a href="#Skewness-&amp;-Kurtosis-Test" data-toc-modified-id="Skewness-&amp;-Kurtosis-Test-2.1.2"><span class="toc-item-num">2.1.2&nbsp;&nbsp;</span>Skewness &amp; Kurtosis Test</a></span></li><li><span><a href="#Pearson-Chi-Squared-Goodness-of-Fit-Test" data-toc-modified-id="Pearson-Chi-Squared-Goodness-of-Fit-Test-2.1.3"><span class="toc-item-num">2.1.3&nbsp;&nbsp;</span>Pearson Chi-Squared Goodness of Fit Test</a></span></li><li><span><a href="#Shapiro-Test" data-toc-modified-id="Shapiro-Test-2.1.4"><span class="toc-item-num">2.1.4&nbsp;&nbsp;</span>Shapiro Test</a></span></li><li><span><a href="#Normality-test-for-other-variables" data-toc-modified-id="Normality-test-for-other-variables-2.1.5"><span class="toc-item-num">2.1.5&nbsp;&nbsp;</span>Normality test for other variables</a></span></li></ul></li><li><span><a href="#Analysis-of-The-Divergence-From-Normality" data-toc-modified-id="Analysis-of-The-Divergence-From-Normality-2.2"><span class="toc-item-num">2.2&nbsp;&nbsp;</span>Analysis of The Divergence From Normality</a></span></li><li><span><a href="#Test-whether-the-distributions-of-different-genders-are-different" data-toc-modified-id="Test-whether-the-distributions-of-different-genders-are-different-2.3"><span class="toc-item-num">2.3&nbsp;&nbsp;</span>Test whether the distributions of different genders are different</a></span><ul class="toc-item"><li><span><a href="#Visualization-of-different-genders" data-toc-modified-id="Visualization-of-different-genders-2.3.1"><span class="toc-item-num">2.3.1&nbsp;&nbsp;</span>Visualization of different genders</a></span></li><li><span><a href="#Hypothesis-tests" data-toc-modified-id="Hypothesis-tests-2.3.2"><span class="toc-item-num">2.3.2&nbsp;&nbsp;</span>Hypothesis tests</a></span></li><li><span><a href="#Test-whether-the-means-of-two-normal-distribution-are-the-same" data-toc-modified-id="Test-whether-the-means-of-two-normal-distribution-are-the-same-2.3.3"><span class="toc-item-num">2.3.3&nbsp;&nbsp;</span>Test whether the means of two normal distribution are the same</a></span></li></ul></li></ul></li><li><span><a href="#PART-3:-Linear-Regression-Analysis" data-toc-modified-id="PART-3:-Linear-Regression-Analysis-3"><span class="toc-item-num">3&nbsp;&nbsp;</span>PART 3: Linear Regression Analysis</a></span><ul class="toc-item"><li><span><a href="#Regression-Without-Partitioning-Sample-is-NOT-SERIOUS" data-toc-modified-id="Regression-Without-Partitioning-Sample-is-NOT-SERIOUS-3.1"><span class="toc-item-num">3.1&nbsp;&nbsp;</span>Regression Without Partitioning Sample is NOT SERIOUS</a></span></li><li><span><a href="#Benchmark:-A-Horizonal-Regression-Line" data-toc-modified-id="Benchmark:-A-Horizonal-Regression-Line-3.2"><span class="toc-item-num">3.2&nbsp;&nbsp;</span>Benchmark: A Horizonal Regression Line</a></span></li><li><span><a href="#Simple-Regression-Model" data-toc-modified-id="Simple-Regression-Model-3.3"><span class="toc-item-num">3.3&nbsp;&nbsp;</span>Simple Regression Model</a></span></li><li><span><a href="#Multiple-Regression-Model" data-toc-modified-id="Multiple-Regression-Model-3.4"><span class="toc-item-num">3.4&nbsp;&nbsp;</span>Multiple Regression Model</a></span></li><li><span><a href="#Dealing-With-Multicollinearity" data-toc-modified-id="Dealing-With-Multicollinearity-3.5"><span class="toc-item-num">3.5&nbsp;&nbsp;</span>Dealing With Multicollinearity</a></span></li><li><span><a href="#Backward-Feature-Selection" data-toc-modified-id="Backward-Feature-Selection-3.6"><span class="toc-item-num">3.6&nbsp;&nbsp;</span>Backward Feature Selection</a></span></li><li><span><a href="#Test-on-the-Normality-of-residuals" data-toc-modified-id="Test-on-the-Normality-of-residuals-3.7"><span class="toc-item-num">3.7&nbsp;&nbsp;</span>Test on the Normality of residuals</a></span></li><li><span><a href="#Confidence-Interval-of-Prediction" data-toc-modified-id="Confidence-Interval-of-Prediction-3.8"><span class="toc-item-num">3.8&nbsp;&nbsp;</span>Confidence Interval of Prediction</a></span></li><li><span><a href="#Partial-Regression:-To-see-the-true-bivariate-relationship" data-toc-modified-id="Partial-Regression:-To-see-the-true-bivariate-relationship-3.9"><span class="toc-item-num">3.9&nbsp;&nbsp;</span>Partial Regression: To see the true bivariate relationship</a></span><ul class="toc-item"><li><span><a href="#Partial-Regression-Plots" data-toc-modified-id="Partial-Regression-Plots-3.9.1"><span class="toc-item-num">3.9.1&nbsp;&nbsp;</span>Partial Regression Plots</a></span></li><li><span><a href="#CCPR-plots" data-toc-modified-id="CCPR-plots-3.9.2"><span class="toc-item-num">3.9.2&nbsp;&nbsp;</span>CCPR plots</a></span></li></ul></li><li><span><a href="#Outliers-Detecting:-Influence-Plots" data-toc-modified-id="Outliers-Detecting:-Influence-Plots-3.10"><span class="toc-item-num">3.10&nbsp;&nbsp;</span>Outliers Detecting: Influence Plots</a></span></li></ul></li><li><span><a href="#PART-4:-Advanced-Models:-Ridge,-Lasso-and-Support-Vector-Regression" data-toc-modified-id="PART-4:-Advanced-Models:-Ridge,-Lasso-and-Support-Vector-Regression-4"><span class="toc-item-num">4&nbsp;&nbsp;</span>PART 4: Advanced Models: Ridge, Lasso and Support Vector Regression</a></span><ul class="toc-item"><li><span><a href="#Shrinkage-Methods:-Ridge-and-Lasso" data-toc-modified-id="Shrinkage-Methods:-Ridge-and-Lasso-4.1"><span class="toc-item-num">4.1&nbsp;&nbsp;</span>Shrinkage Methods: Ridge and Lasso</a></span></li><li><span><a href="#SVR" data-toc-modified-id="SVR-4.2"><span class="toc-item-num">4.2&nbsp;&nbsp;</span>SVR</a></span></li></ul></li><li><span><a href="#Reference" data-toc-modified-id="Reference-5"><span class="toc-item-num">5&nbsp;&nbsp;</span>Reference</a></span></li><li><span><a href="#Appendix" data-toc-modified-id="Appendix-6"><span class="toc-item-num">6&nbsp;&nbsp;</span>Appendix</a></span><ul class="toc-item"><li><span><a href="#Regression-results-for-male-and-female-respectively" data-toc-modified-id="Regression-results-for-male-and-female-respectively-6.1"><span class="toc-item-num">6.1&nbsp;&nbsp;</span>Regression results for male and female respectively</a></span></li><li><span><a href="#Util-Functions" data-toc-modified-id="Util-Functions-6.2"><span class="toc-item-num">6.2&nbsp;&nbsp;</span>Util Functions</a></span></li></ul></li></ul></div>
 </div>
 </div>
 </div>
@@ -11900,7 +11927,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Index([u&#39;Gender&#39;, u&#39;Height&#39;, u&#39;Weight&#39;, u&#39;ArmSpan&#39;, u&#39;LegLength&#39;,
        u&#39;FeetLength&#39;],
@@ -11929,7 +11958,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12037,7 +12068,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[8]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12176,7 +12209,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12185,7 +12220,9 @@ div#notebook {
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -12472,7 +12509,9 @@ IkmSas/AIkmSas/AIkmSas/AIkmSau//A8YWmo4hXxPIAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -13066,7 +13105,9 @@ gg==
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -13656,7 +13697,9 @@ PE8AAAAASUVORK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -14281,7 +14324,9 @@ AADGhD8AAACMCX8AAAAYE/4AAAAwJvwBAABgLF0D4SMuUYTLAAAAAElFTkSuQmCC
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -14852,7 +14897,9 @@ xIdUoRcRERERERHxof8PGNQyj/s2ROAAAAAASUVORK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -15439,7 +15486,9 @@ RERERESy3P8HoQqs0GDudsAAAAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -15448,7 +15497,9 @@ RERERESy3P8HoQqs0GDudsAAAAAASUVORK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -17893,7 +17944,9 @@ AAAAYCDaAAAAAGAg2gAAAABgEHV+pD6iIKBBAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[12]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -17983,7 +18036,9 @@ AAAAYCDaAAAAAGAg2gAAAABgEHV+pD6iIKBBAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -17992,7 +18047,9 @@ AAAAYCDaAAAAAGAg2gAAAABgEHV+pD6iIKBBAAAAAElFTkSuQmCC
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -18398,7 +18455,9 @@ xCIiIiLSaAqIRURERKTR/h+t2MCkgOHDRQAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[14]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -18407,7 +18466,9 @@ xCIiIiLSaAqIRURERKTR/h+t2MCkgOHDRQAAAABJRU5ErkJggg==
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -19179,7 +19240,9 @@ X/M0KjDbMiAAAAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -19188,7 +19251,9 @@ X/M0KjDbMiAAAAAASUVORK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -20090,7 +20155,9 @@ AAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -20685,7 +20752,9 @@ where $z_1$ and $z_2$ are the statistics from skewness and kurtosis test.</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>              Statistic  P value
 Test Name                       
@@ -20743,7 +20812,9 @@ Omnitest       9.707668  0.00780
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[19]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -20752,7 +20823,9 @@ Omnitest       9.707668  0.00780
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -21433,7 +21506,9 @@ MkqCESGEEEJklAQjQgghhMgoCUaEEEIIkVH/H5nUIT12QGuIAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -22096,7 +22171,9 @@ AABJRU5ErkJggg==
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>The result of Chi-Squared test:
 statistic: 15.0549816151 
@@ -22155,7 +22232,9 @@ statistic: 15.0549816151
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[22]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -22240,7 +22319,9 @@ statistic: 15.0549816151
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[24]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -22443,7 +22524,9 @@ statistic: 15.0549816151
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[25]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -22452,7 +22535,9 @@ statistic: 15.0549816151
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -25210,7 +25295,9 @@ where $\mu$ is the mean, $\sigma$ is the standard deviation. Then the superposed
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>       Gender  Height  Weight  ArmSpan  LegLength  FeetLength
 Index                                                        
@@ -25243,11 +25330,11 @@ Index
 
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;Height&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">r&#39;Distribution among $\mathbf{all \quad people}$&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">raw</span><span class="p">[</span><span class="s1">&#39;Height&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Distribution among $\mathbf{all \quad people}$&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">raw_male</span><span class="p">[</span><span class="s1">&#39;Height&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">r&#39;Distribution among $\mathbf{male}$&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">raw_male</span><span class="p">[</span><span class="s1">&#39;Height&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Distribution among $\mathbf{male}$&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">raw_female</span><span class="p">[</span><span class="s1">&#39;Height&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">r&#39;Distribution among $\mathbf{female}$&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">raw_female</span><span class="p">[</span><span class="s1">&#39;Height&#39;</span><span class="p">],</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;Distribution among $\mathbf{female}$&#39;</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -25263,7 +25350,9 @@ Index
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -26258,14 +26347,18 @@ SMZT0SoiIiIiGU9Fq4iIiIhkPBWtIiIiIpLx/h/gOEhXgIwOHQAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Test reulsts of male: 
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[29]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -26404,14 +26497,18 @@ SMZT0SoiIiIiGU9Fq4iIiIhkPBWtIiIiIpLx/h/gOEhXgIwOHQAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Test reulsts of female: 
 </pre>
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[30]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -26593,7 +26690,9 @@ SMZT0SoiIiIiGU9Fq4iIiIhkPBWtIiIiIpLx/h/gOEhXgIwOHQAAAABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>count     61.000000
 mean     176.073770
@@ -26669,7 +26768,9 @@ $$</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>F = 1.95826029888, the corresponding P value = 0.02681460578
 </pre>
@@ -26735,7 +26836,9 @@ Note that in current context, <strong>the number of female is less</strong>. $\x
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[-26.   -1.  -12.  -17.   -5.  -16.  -21.  -14.  -21.  -29.   -1.  -16.
  -22.    4.  -13.   -7.   -1.  -25.  -24.  -16.  -16.  -15.   -2.    0.
@@ -26767,7 +26870,9 @@ Note that in current context, <strong>the number of female is less</strong>. $\x
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>T = -0.770351109719, the corresponding P value = 0.223771556575
 </pre>
@@ -26904,7 +27009,9 @@ Note that in current context, <strong>the number of female is less</strong>. $\x
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[36]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -26980,7 +27087,9 @@ Note that in current context, <strong>the number of female is less</strong>. $\x
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>                            OLS Regression Results                            
 ==============================================================================
@@ -27191,7 +27300,9 @@ Warnings:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>                            OLS Regression Results                            
 ==============================================================================
@@ -27287,7 +27398,9 @@ strong multicollinearity or other numerical problems.
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>                            OLS Regression Results                            
 ==============================================================================
@@ -27363,7 +27476,9 @@ Warnings:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Our multiple regression model has a coefficient of determination of [0.63499865371] on the test dataset.
     
@@ -27436,7 +27551,9 @@ Warnings:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>                            OLS Regression Results                            
 ==============================================================================
@@ -27511,7 +27628,9 @@ Our multiple regression model has a coefficient of determination of [0.639398267
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>                            OLS Regression Results                            
 ==============================================================================
@@ -27621,7 +27740,9 @@ Our multiple regression model has a coefficient of determination of [0.614026228
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -29302,7 +29423,9 @@ kiRJkiS1tf8PekGWd/0hVLgAAAAASUVORK5CYII=
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
  Skewness and Kurtosis test on residual: 
@@ -29310,7 +29433,9 @@ kiRJkiS1tf8PekGWd/0hVLgAAAAASUVORK5CYII=
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[45]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -29444,7 +29569,7 @@ kiRJkiS1tf8PekGWd/0hVLgAAAAASUVORK5CYII=
     
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">x_name</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">endog_names</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">r&#39;Plot Fit with Confidence Interval ($\alpha = {0}$, variable = [{1}])&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conf_level</span><span class="p">,</span> <span class="n">x_name</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Plot Fit with Confidence Interval ($\alpha = {0}$, variable = [{1}])&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conf_level</span><span class="p">,</span> <span class="n">x_name</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -29485,7 +29610,9 @@ kiRJkiS1tf8PekGWd/0hVLgAAAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -31423,7 +31550,9 @@ STUmTCRJkiRJkmr+H/8+vuqNfOBgAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -32015,7 +32144,9 @@ of the former versus the latter residuals.</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -33109,7 +33240,9 @@ AAO6JEmSJEkJYECXJEmSJCkBDOiSJEmSJCWAAV2SJEmSpAT4f32gyA0Si15uAAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -34357,7 +34490,9 @@ where</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -35579,7 +35714,9 @@ kiRJkqSG+v8BtJ07dkp9JjwAAAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -36948,7 +37085,9 @@ AElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>--------------------myalpha = 10----------------------------
  |   Training dataset Rsquare: 0.774117679163
@@ -36984,7 +37123,9 @@ AElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>--------------------myalpha = 10----------------------------
  |   Training dataset Rsquare: 0.696410629749
@@ -37054,7 +37195,9 @@ AElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -38320,7 +38463,9 @@ AQAAAAAAhoJQBAAAAAAAGApCEQAAAAAAYCj8f04BZ4V+bCRNAAAAAElFTkSuQmCC
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -39034,7 +39179,9 @@ CAAAAAAA0AhCEQAAAAAAoBGEIgAAAAAAQCP8/9ZMpcqWGNO+AAAAAElFTkSuQmCC
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -40318,7 +40465,9 @@ AAAAQE8QigAAAAAAAD1BKAIAAAAAAPSE/wv0gm7/nuzQowAAAABJRU5ErkJggg==
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -41071,7 +41220,9 @@ AAAAAAA6glAEAAAAAADoCEIRAAAAAACgI/z/2hFX4OzXmQAAAAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>--------------------myc = 0.2, myepsilon = 2.5--------------
  |   Number of support vectors:  36
@@ -41113,7 +41264,9 @@ AAAAAAA6glAEAAAAAADoCEIRAAAAAACgI/z/2hFX4OzXmQAAAAAASUVORK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -42401,7 +42554,9 @@ WNYz1NijAAAAAElFTkSuQmCC
 
 </div>
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 
 
 <div class="output_png output_subarea ">
@@ -43154,7 +43309,9 @@ RK5CYII=
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>                            OLS Regression Results                            
 ==============================================================================
@@ -43212,7 +43369,9 @@ Warnings:
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>                            OLS Regression Results                            
 ==============================================================================
@@ -43277,34 +43436,7 @@ Warnings:
   </div>
 </body>
 
-<style id="stylish-1" class="stylish" type="text/css">
-html, body {
-    font-family: "cmr10", Tahoma, Helvetica, "微软雅黑", "文泉驿等宽微米黑", "华文细黑", monospace, sans-serif;
-}
+ 
 
-html {
- font-size:11pt !important;
-}
-
-h1 {font-size:40pt !important;}
-h2 {font-size:18pt !important;}
-h3 {font-size:14pt !important;}
-h4 {font-size:11pt !important;}
-h1, h2, h3, h4 {
-  font-family: "JI Hidden Vines", Elephant;
-}
-
-div.input_area {
-  font-family: Consolas !important;
-  font-size:10pt !important;
-}
-
-div.output_area {
-  font-family: Consolas !important;
-  font-size:10pt !important;
-
-}
-
-</style>
 
 </html>
